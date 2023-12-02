@@ -31,3 +31,27 @@ ip r add default via 10.0.2.1         ---> To add default route with gateway
 ip r add 172.21.0.0/16 dev enp1s0     ---> To add route to go with specific interface
 ip -br -c a ; ip r                    ---> Check IP and Route in One go
 ```
+# DNS and Hostname
+**Note: Ubuntu uses netplan for ip assignment and dns config**
+```
+cat /etc/resolv.conf
+cat /etc/systemd/resolved.conf
+
+ [Resolve]
+ DNS=10.0.2.1
+ FallbackDNS=10.0.2.2
+ #Domains=
+ #LLMNR=yes
+ #MulticastDNS=yes
+ #DNSSEC=allow-downgrade
+ #DNSOverTLS=no
+ #Cache=yes
+ #DNSStubListener=yes
+ #ReadEtcHosts=yes
+
+nmcli connection modify enp1s0 ipv4.dns 10.0.2.3
+```
+# nmcli
+```
+nmcli connection modify enp1s0 ipv4.dns 10.0.2.3
+```
