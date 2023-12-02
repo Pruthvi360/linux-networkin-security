@@ -7,12 +7,14 @@ NOTE:
 **Two good ways to modify hostnames:**
 ```
 hostnamectl set-hostname <hostname>
-vim /etc/hostname
+vim /etc/hostname  ---> (requires logoff)
 ```
 **Two locations for DNS:**
 ```
 /etc/resolv.conf
 /etc/systemd/resolved.conf
+/etc/netplan
+/etc/NetworkManager/system-connections
 ```
 **Check IP Address of linux machine with interface**
 ```
