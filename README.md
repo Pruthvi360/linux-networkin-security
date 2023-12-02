@@ -50,8 +50,43 @@ cat /etc/systemd/resolved.conf
  #ReadEtcHosts=yes
 
 nmcli connection modify enp1s0 ipv4.dns 10.0.2.3
+
+nano /etc/hosts
+
+10.0.2.52      debclient.example.local debclient
 ```
 # nmcli
+**Note: Ubuntu doesn't use network manager**
 ```
+systemctl status NetworkManager
 nmcli connection modify enp1s0 ipv4.dns 10.0.2.3
+nmcli con show
+nmcli con mod <network-interface>
+nmcli con up <network-interface>
+nmcli con edit <network-interface>
 ```
+**Modify interface using nmcli**
+**Note: Can assign single or multiple address**
+```
+nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.address 10.0.2.152/24 ipv4.gateway 10.0.2.1 ipv4.dns 10.0.2.1
+nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.address 10.0.2.152/24,10.0.2.153/24
+nmcli connection down "Wired connection 1"
+nmcli connection up "Wired connection 1"
+nmcli c m "Wired connection 1" ipv4.method auto
+```
+**Delete the ip address use "-"**
+```
+nmcli c m "Wired connection 1" -ipv4.address 10.0.2.153/24
+```
+
+# NMCLI interactive shell
+```
+nmcli connection edit "Wired connection 1"
+remove ipv4.address 10.0.2.152/24
+set ipv4.address 10.0.2.52/24
+save
+activate
+quit
+```
+**nmcli -h and man nmcli commands for help for using nmcli**
+
