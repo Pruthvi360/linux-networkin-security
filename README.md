@@ -62,3 +62,35 @@ network:
 netplan try
 netplan apply
 ```
+
+# Fedora
+```
+systemctl status NetworkManager
+```
+
+<img width="481" alt="image" src="https://github.com/Pruthvi360/linux-networkin-security/assets/107435692/8a388a92-6603-47b4-89b2-f3e6d0ad67fc">
+
+
+# SUSE
+
+
+<img width="491" alt="image" src="https://github.com/Pruthvi360/linux-networkin-security/assets/107435692/1d4e09ef-ac65-417c-9068-54865fbb21f2">
+
+
+# Other methods of network config editor
+```
+nmtui
+nm-connection-editor
+nmcli
+cockpit.socket  ---> Browser based
+sudo apt install cockpit && systemctl --now enable cockpit.socket && firefox https://127.0.0.1:9090
+```
+
+# Other methods of network configuration files
+
+```
+cd /etc/sysconfig/network-scripts
+cd /etc/NetworkManager/system-connetions/
+vim 'Wired connection 1'
+
+```
