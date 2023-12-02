@@ -1,4 +1,9 @@
-# linux-networkin-security
+# linux-networking-security
+```
+NOTE:
+1. Ubuntu desktop doesn't use systemd-networkd but it use NetworManager
+2. Ubuntu server or cli use systemd-networkd
+```
 **Two good ways to modify hostnames:**
 ```
 hostnamectl set-hostname <hostname>
