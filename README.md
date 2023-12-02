@@ -26,9 +26,17 @@ iface enp1s0 inet static
     address 10.0.2.51/24
     gateway 10.0.2.1
 ```
+```
+ifdown <interface> and ifup <interface>
+ifdown enp1s0 && ifup enp1s0
+```
 
 # Ubuntu
-
+```
+systemctl --now disable systemcd-networkd
+systemctl --now enable systemcd-networkd
+systemctl start systemcd-networkd
+```
 ![image](https://github.com/Pruthvi360/linux-networkin-security/assets/107435692/6f47a18a-e660-437c-b328-6ab1b83b02f2)
 
 ```
