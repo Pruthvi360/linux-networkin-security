@@ -14,4 +14,15 @@ debian 12 server = use systemctl status systemcd-networkd
 debian desktop = use NetworkManager instead of networking or systemcd-networkd services
 Network configuration files = /etc/network/interfaces
 ```
+**nano /etc/network/interfaces**
+```
+# The loopback network interface
+auto lo
+iface lo inet loopback
 
+# The primary network interface
+allow-hotplug enp1s0
+iface enp1s0 inet static
+    address 10.0.2.51/24
+    gateway 10.0.2.1
+```
