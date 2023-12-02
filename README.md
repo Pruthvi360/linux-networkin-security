@@ -45,3 +45,20 @@ ubuntu 22.04 server = use systemctl status systemcd-networkd
 ubuntu desktop = use NetworkManager instead of networking or systemcd-networkd services
 Network configuration files = /etc/netplan
 ```
+**vim /etc/netplan/00-installer-config.yaml**
+```
+network:       
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp1s0:
+      addresses: [10.0.2.53/24]
+      gateway4: 10.0.2.1
+      nameservers: 
+        search: [example.com]
+        addresses: [10.0.2.1]
+```
+```
+netplan try
+netplan apply
+```
