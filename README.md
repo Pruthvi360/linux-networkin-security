@@ -26,3 +26,14 @@ iface enp1s0 inet static
     address 10.0.2.51/24
     gateway 10.0.2.1
 ```
+
+# Ubuntu
+
+![image](https://github.com/Pruthvi360/linux-networkin-security/assets/107435692/6f47a18a-e660-437c-b328-6ab1b83b02f2)
+
+```
+Note:
+ubuntu 22.04 server = use systemctl status systemcd-networkd
+ubuntu desktop = use NetworkManager instead of networking or systemcd-networkd services
+Network configuration files = /etc/netplan
+```
